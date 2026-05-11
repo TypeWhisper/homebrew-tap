@@ -1,0 +1,41 @@
+name: Validate Cask
+
+on:
+  pull_request:
+    paths:
+      - Casks/**
+      - .github/workflows/validate-cask.yml
+  push:
+    branches:
+      - main
+    paths:
+      - Casks/**
+      - .github/workflows/validate-cask.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-cask-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate Homebrew Cask
+    runs-on: macos-15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Update Homebrew
+        run: brew update
+
+      - name: Tap local checkout
+        run: brew tap TypeWhisper/tap "$GITHUB_WORKSPACE"
+
+      - name: Check Cask style
+        run: brew style Casks/typewhisper.rb
+
+      - name: Audit Cask
+        run: brew audit --cask typewhisper
