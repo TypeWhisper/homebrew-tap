@@ -2,11 +2,9 @@ cask "typewhisper" do
   version "1.3.3"
   sha256 "6f21f72b539ce0cfde81d64710cffd615be5f11d0392679317884d280cb92a84"
 
-  url "https://github.com/TypeWhisper/typewhisper-mac/releases/download/v#{version}/TypeWhisper-v#{version}.dmg",
-      verified: "github.com/TypeWhisper/typewhisper-mac/"
-
+  url "https://github.com/TypeWhisper/typewhisper-mac/releases/download/v#{version}/TypeWhisper-v#{version}.dmg"
   name "TypeWhisper"
-  desc "Speech-to-text and AI text processing for macOS"
+  desc "Speech-to-text and AI text processing"
   homepage "https://github.com/TypeWhisper/typewhisper-mac"
 
   livecheck do
@@ -21,8 +19,8 @@ cask "typewhisper" do
 
   zap trash: [
     "~/Library/Application Support/TypeWhisper",
-    "~/Library/Preferences/com.typewhisper.mac.plist",
     "~/Library/Caches/com.typewhisper.mac",
     "~/Library/HTTPStorages/com.typewhisper.mac",
+    "~/Library/Preferences/com.typewhisper.mac.plist",
   ]
 end
