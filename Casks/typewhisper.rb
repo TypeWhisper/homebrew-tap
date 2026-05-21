@@ -1,6 +1,6 @@
 cask "typewhisper" do
-  version "1.3.3"
-  sha256 "6f21f72b539ce0cfde81d64710cffd615be5f11d0392679317884d280cb92a84"
+  version "1.4.0"
+  sha256 "7158c9169f366affcfc235eeac58f14564063f6cf3d1dc602ab5cf09ea8995db"
 
   url "https://github.com/TypeWhisper/typewhisper-mac/releases/download/v#{version}/TypeWhisper-v#{version}.dmg"
   name "TypeWhisper"
