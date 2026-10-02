@@ -11,3 +11,4 @@ brew install --cask typewhisper/tap/typewhisper
 ## More info
 
 https://github.com/TypeWhisper/typewhisper-mac
+
