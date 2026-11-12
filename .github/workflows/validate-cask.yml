@@ -34,6 +34,9 @@ jobs:
       - name: Tap local checkout
         run: brew tap TypeWhisper/tap "$GITHUB_WORKSPACE"
 
+      - name: Trust the tap
+        run: brew trust --tap typewhisper/tap
+
       - name: Check Cask style
         run: brew style Casks/typewhisper.rb
 
